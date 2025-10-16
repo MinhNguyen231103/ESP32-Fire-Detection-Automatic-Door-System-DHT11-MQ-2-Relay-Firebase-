@@ -36,20 +36,20 @@ Hệ thống phát hiện khói/nồng độ khí nguy hiểm và nhiệt cao:
 - Thư viện `HTTPClient` (có sẵn trong ESP32 core)
 
 🔁 Cơ chế hoạt động (tóm tắt)
--ESP32 kết nối WiFi.
--Đọc DHT11 (nhiệt, ẩm) và MQ-2 (analog) mỗi 5s.
--Nếu MQ2_raw >= MQ2_SMOKE_THRESHOLD hoặc temperature >= TEMP_FIRE_THRESHOLD → kích hoạt alarm:
--Bật relay quạt (FAN)
--Mở cửa (DOOR relay)
--Bật còi (buzzer)
--Ghi log (POST /logs) và cập nhật status (PUT /status) lên Firebase.
--Ghi sự kiện cuối cùng vào /last_alarm.
+- ESP32 kết nối WiFi.
+- Đọc DHT11 (nhiệt, ẩm) và MQ-2 (analog) mỗi 5s.
+- Nếu MQ2_raw >= MQ2_SMOKE_THRESHOLD hoặc temperature >= TEMP_FIRE_THRESHOLD → kích hoạt alarm:
+- Bật relay quạt (FAN)
+- Mở cửa (DOOR relay)
+- Bật còi (buzzer)
+- Ghi log (POST /logs) và cập nhật status (PUT /status) lên Firebase.
+- Ghi sự kiện cuối cùng vào /last_alarm.
 
 🔧 Điều chỉnh & hiệu chuẩn
--MQ-2: cần calibrate để biết ngưỡng chính xác (thử nghiệm thực tế trong môi trường).
--MQ2_SMOKE_THRESHOLD mặc định là 300 (ADC 0-4095). Thay theo module và nguồn.
--TEMP_FIRE_THRESHOLD mặc định 55°C — điều chỉnh theo yêu cầu.
--READ_INTERVAL để điều chỉnh tần suất đọc/gửi dữ liệu.
+- MQ-2: cần calibrate để biết ngưỡng chính xác (thử nghiệm thực tế trong môi trường).
+- MQ2_SMOKE_THRESHOLD mặc định là 300 (ADC 0-4095). Thay theo module và nguồn.
+- TEMP_FIRE_THRESHOLD mặc định 55°C — điều chỉnh theo yêu cầu.
+- READ_INTERVAL để điều chỉnh tần suất đọc/gửi dữ liệu.
 
 🔐 Bảo mật & production
 -Không để FIREBASE_AUTH công khai trong repo. Dùng biến môi trường hoặc secret manager.
