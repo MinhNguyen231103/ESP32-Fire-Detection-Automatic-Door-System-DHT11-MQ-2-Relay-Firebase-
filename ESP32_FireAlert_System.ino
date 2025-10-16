@@ -12,7 +12,7 @@ DHT dht(DHTPIN, DHTTYPE);
 #define RELAY_DOOR 17       // Relay điều khiển cửa
 #define BUZZER_PIN 2        // Buzzer (optional)
 
-// --------- Cấu hình WiFi & Firebase ---------
+// --------- Cấu hình WiFi & Firebase --------
 const char* ssid = "YOUR_WIFI_SSID";
 const char* password = "YOUR_WIFI_PASSWORD";
 
